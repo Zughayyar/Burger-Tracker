@@ -59,7 +59,6 @@
                     <form:errors path="notes" cssClass="errorMessage" />
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-
             </form:form>
         </div>
 
