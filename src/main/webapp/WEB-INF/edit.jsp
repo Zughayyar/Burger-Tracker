@@ -12,40 +12,13 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
     <div class="main-container">
         <div class="table-show-all">
-            <h1>Burger Tracker</h1>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Burger Name</th>
-                    <th scope="col">Restaurant Name</th>
-                    <th scope="col">Rating (out of 5)</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${burgers}" var="burger">
-                    <tr>
-                        <td>${burger.name}</td>
-                        <td>${burger.restaurant}</td>
-                        <td>${burger.rating}</td>
-                        <td class="actions-col">
-                            <a href="/burgers/${burger.id}/edit">Edit</a>
-                            <form action="/burgers/${burger.id}/makeDelete" method="post">
-                                <input type="hidden" name="_method" value="delete"/>
-                                <input type="submit" value="Delete" class="btn btn-link">
-                            </form>
-                        </td>
-                    </tr>
-                </c:forEach>
-
-                </tbody>
-            </table>
-        </div>
-        <div class="form-add-burger">
-            <h2>Add a Burger:</h2>
-            <form:form action="/addBurger" method="post" modelAttribute="burger" >
+            <h1>Edit Burger</h1>
+            <a href="/" class="btn btn-secondary" >Go Back</a>
+            <form:form action="/burgers/${burger.id}/makeEdit" method="post" modelAttribute="burger" >
+                <input type="hidden" name="_method" value="put"/>
                 <div class="mb-3">
                     <form:label path="name" cssClass="form-label" for="name">Burger Name</form:label>
                     <form:input path="name" class="form-control" id="name" />
@@ -69,9 +42,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form:form>
         </div>
-
     </div>
-
 
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
