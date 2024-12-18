@@ -20,7 +20,11 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String index(Model model, @ModelAttribute("burger") Burger burger) {
+    public String index(
+            Model model,
+            @ModelAttribute("burger") Burger burger,
+            @ModelAttribute("toBeDeletedBurger") Burger toBeDeletedBurger
+    ) {
         model.addAttribute("burgers", burgerService.getAllBurgers());
         return "index";
     }

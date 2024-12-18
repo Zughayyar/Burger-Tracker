@@ -17,27 +17,30 @@
         <div class="table-show-all">
             <h1>Edit Burger</h1>
             <a href="/" class="btn btn-secondary" >Go Back</a>
-            <form:form action="/burgers/${burger.id}/makeEdit" method="post" modelAttribute="burger" >
-                <input type="hidden" name="_method" value="put"/>
+            <form:form action="/burgers/makeEdit" method="post" modelAttribute="burger" >
+<%--                <input type="hidden" name="_method" value="put"/>--%>
+                <form:hidden path="id"/>
                 <div class="mb-3">
                     <form:label path="name" cssClass="form-label" for="name">Burger Name</form:label>
                     <form:input path="name" class="form-control" id="name" />
+                </div>
+                <div class="mb-3">
                     <form:errors path="name" cssClass="errorMessage" />
                 </div>
                 <div class="mb-3">
                     <form:label path="restaurant" cssClass="form-label" for="restaurant">Burger Restaurant</form:label>
                     <form:input path="restaurant" class="form-control" id="restaurant" />
-                    <form:errors path="restaurant" cssClass="errorMessage" />
+                    <form:errors path="restaurant" cssClass="errorMessage" class="alert alert-primary" role="alert" />
                 </div>
                 <div class="mb-3">
                     <form:label path="rating" cssClass="form-label" for="rating">Rating</form:label>
                     <form:input path="rating" class="form-control" id="rating" />
-                    <form:errors path="rating" cssClass="errorMessage" />
+                    <form:errors path="rating" cssClass="errorMessage" class="alert alert-primary" role="alert" />
                 </div>
                 <div class="mb-3">
                     <form:label path="notes" cssClass="form-label" for="notes">Notes</form:label>
                     <form:input path="notes" class="form-control" id="notes" />
-                    <form:errors path="notes" cssClass="errorMessage" />
+                    <form:errors path="notes" cssClass="errorMessage" class="alert alert-primary" role="alert" />
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form:form>

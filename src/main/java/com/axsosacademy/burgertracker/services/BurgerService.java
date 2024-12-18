@@ -36,11 +36,8 @@ public class BurgerService {
     }
 
     // Delete burger
-    public void deleteBurger(Long id) {
-        Optional<Burger> burger = burgerRepository.findById(id);
-        if (burger.isPresent()) {
-            burgerRepository.deleteById(id);
-        }
+    public void deleteBurger(Burger burger) {
+        burgerRepository.deleteById(burger.getId());
     }
 
 }

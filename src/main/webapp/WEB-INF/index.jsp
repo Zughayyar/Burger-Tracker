@@ -15,7 +15,7 @@
     <div class="main-container">
         <div class="table-show-all">
             <h1>Burger Tracker</h1>
-            <table class="table">
+            <table class="table text-center" >
                 <thead>
                 <tr>
                     <th scope="col">Burger Name</th>
@@ -32,10 +32,11 @@
                         <td>${burger.rating}</td>
                         <td class="actions-col">
                             <a href="/burgers/${burger.id}/edit">Edit</a>
-                            <form action="/burgers/${burger.id}/makeDelete" method="post">
-                                <input type="hidden" name="_method" value="delete"/>
+                            <form:form action="/burgers/makeDelete" method="post" modelAttribute="toBeDeletedBurger">
+<%--                                <input type="hidden" name="_method" value="delete">--%>
+                                <form:hidden path="id" value="${burger.id}"/>
                                 <input type="submit" value="Delete" class="btn btn-link">
-                            </form>
+                            </form:form>
                         </td>
                     </tr>
                 </c:forEach>
@@ -49,22 +50,30 @@
                 <div class="mb-3">
                     <form:label path="name" cssClass="form-label" for="name">Burger Name</form:label>
                     <form:input path="name" class="form-control" id="name" />
-                    <form:errors path="name" cssClass="errorMessage" />
+                </div>
+                <div class="mb-3">
+                    <form:errors path="name" cssClass="alert alert-danger" />
                 </div>
                 <div class="mb-3">
                     <form:label path="restaurant" cssClass="form-label" for="restaurant">Burger Restaurant</form:label>
                     <form:input path="restaurant" class="form-control" id="restaurant" />
-                    <form:errors path="restaurant" cssClass="errorMessage" />
+                </div>
+                <div class="mb-3">
+                    <form:errors path="restaurant" cssClass="alert alert-danger" />
                 </div>
                 <div class="mb-3">
                     <form:label path="rating" cssClass="form-label" for="rating">Rating</form:label>
                     <form:input path="rating" class="form-control" id="rating" />
-                    <form:errors path="rating" cssClass="errorMessage" />
+                </div>
+                <div class="mb-3">
+                    <form:errors path="rating" cssClass="alert alert-danger"  />
                 </div>
                 <div class="mb-3">
                     <form:label path="notes" cssClass="form-label" for="notes">Notes</form:label>
                     <form:input path="notes" class="form-control" id="notes" />
-                    <form:errors path="notes" cssClass="errorMessage" />
+                </div>
+                <div class="mb-3">
+                    <form:errors path="notes" cssClass="alert alert-danger" />
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form:form>
